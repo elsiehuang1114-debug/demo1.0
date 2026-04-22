@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Decision Prototype</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div class="page-shell">
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-badge">CD</div>
+                <div>
+                    <h1 class="brand-title">Career Decision Prototype</h1>
+                    <p class="brand-subtitle">Explore your decision process</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-grid">
+            <section class="step-card">
+
+                <!-- Step 1 -->
+                <section id="step1" class="step active">
+                    <div class="step-header">
+                        <h2>Your Background</h2>
+                        <p class="helper-text">Tell us a little about yourself so we can generate more relevant career options.</p>
+                    </div>
+
+                    <div class="field">
+                        <label for="major">Major</label>
+                        <p class="helper-text">Choose your current degree area.</p>
+                        <select id="major">
+                            <option value="">Select your major</option>
+                            <option value="Information Technology">Information Technology</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Data Science">Data Science</option>
+                            <option value="Business Analytics">Business Analytics</option>
+                            <option value="Cyber Security">Cyber Security</option>
+                            <option value="Business Information Systems">Business Information Systems</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="interest">Interest</label>
+                        <p class="helper-text">Choose the type of work or field you are most interested in exploring.</p>
+                        <select id="interest">
+                            <option value="">Select your interest</option>
+                            <option value="Data">Data</option>
+                            <option value="Cyber Security">Cyber Security</option>
+                            <option value="Business">Business</option>
+                            <option value="UX">UX</option>
+                            <option value="Software Development">Software Development</option>
+                            <option value="Project Management">Project Management</option>
+                            <option value="AI / Machine Learning">AI / Machine Learning</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="skills">Skills</label>
+                        <p class="helper-text">Choose the skill you feel most confident about right now.</p>
+                        <select id="skills">
+                            <option value="">Select your strongest skill</option>
+                            <option value="Python">Python</option>
+                            <option value="SQL">SQL</option>
+                            <option value="Data Analysis">Data Analysis</option>
+                            <option value="Communication">Communication</option>
+                            <option value="Problem Solving">Problem Solving</option>
+                            <option value="Teamwork">Teamwork</option>
+                            <option value="Project Management">Project Management</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="button-row">
+                        <button onclick="goToStep(2)">Next</button>
+                    </div>
+                </section>
+
+                <!-- Step 2 -->
+                <section id="step2" class="step">
+                    <div class="step-header">
+                        <h2>Your Expectation</h2>
+                        <p class="helper-text">Before we show more detailed data, tell us what you currently expect about this kind of career.</p>
+                    </div>
+
+                    <div class="field">
+                        <label for="expectedSalary">Expected Salary</label>
+                        <p class="helper-text">What salary do you think this kind of job usually offers after graduation?</p>
+                        <input id="expectedSalary" placeholder="e.g. 85000" />
+                    </div>
+
+                    <div class="field">
+                        <label for="expectedJobEase">Job Ease</label>
+                        <p class="helper-text">How easy do you think it is to find a job in this area?</p>
+                        <select id="expectedJobEase">
+                            <option value="">Select one</option>
+                            <option value="Easy">Easy</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Difficult">Difficult</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="expectedDifficulty">International Student Difficulty</label>
+                        <p class="helper-text">How difficult do you think it is for international students to enter this field?</p>
+                        <select id="expectedDifficulty">
+                            <option value="">Select one</option>
+                            <option value="Easy">Easy</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Difficult">Difficult</option>
+                        </select>
+                    </div>
+
+                    <div class="button-row">
+                        <button onclick="goToStep(3)">Next</button>
+                    </div>
+                </section>
+
+                <!-- Step 3 -->
+                <section id="step3" class="step">
+                    <div class="step-header">
+                        <h2>What matters to you?</h2>
+                        <p class="helper-text">Drag the cards into Important, Medium, and Not Important to show what you prioritise in career decisions.</p>
+                    </div>
+
+                    <div class="sorting-board">
+                        <div class="sorting-column">
+                            <h3>Important</h3>
+                            <div id="mostImportantZone" class="drop-zone"></div>
+                        </div>
+                        <div class="sorting-column">
+                            <h3>Medium</h3>
+                            <div id="mediumZone" class="drop-zone"></div>
+                        </div>
+                        <div class="sorting-column">
+                            <h3>Not Important</h3>
+                            <div id="notImportantZone" class="drop-zone"></div>
+                        </div>
+                    </div>
+
+                    <div id="factorPool" class="factor-pool"></div>
+
+                    <div class="button-row">
+                        <button onclick="goToStep(4)">Next</button>
+                    </div>
+                </section>
+
+                <!-- Step 4 -->
+                <section id="step4" class="step">
+                    <div class="step-header">
+                        <h2>Choose a Career</h2>
+                        <p class="helper-text">Select the career path you would choose based on the information you have seen so far.</p>
+                    </div>
+
+                    <div id="careerGrid" class="career-grid"></div>
+
+                    <div class="button-row">
+                        <button onclick="goToStep(5)">Next</button>
+                    </div>
+                </section>
+
+                <!-- Step 5 -->
+                <section id="step5" class="step">
+                    <div class="step-header">
+                        <h2>More Information</h2>
+                        <p class="helper-text">Now review more contextualised information, including employment conditions that may affect international students.</p>
+                    </div>
+
+                    <div id="careerDetail" class="detail-panel"></div>
+
+                    <div class="field">
+                        <label for="changeDecision">Would you change your choice?</label>
+                        <p class="helper-text">After seeing this additional information, would you still choose the same career?</p>
+                        <select id="changeDecision">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="button-row">
+                        <button onclick="goToStep(6)">Finish</button>
+                    </div>
+                </section>
+
+                <!-- Step 6 -->
+                <section id="step6" class="step">
+                    <div class="step-header">
+                        <h2>Insights</h2>
+                        <p class="helper-text">This final screen compares your decision pattern with broader testing patterns instead of only listing your raw inputs.</p>
+                    </div>
+
+                    <div class="summary-item">
+                        <strong>Shared career choice:</strong> About 42% of testers also chose the same career path as you.
+                    </div>
+
+                    <div class="summary-item">
+                        <strong>Shared priority:</strong> About 57% of testers also placed Salary in a higher-priority group.
+                    </div>
+
+                    <div class="summary-item">
+                        <strong>Shared overlooked factor:</strong> About 48% of testers, like you, placed Visa Difficulty in a lower-priority group.
+                    </div>
+
+                    <div class="summary-item">
+                        <strong>Decision change pattern:</strong> About 31% of testers changed their decision after seeing more contextualised employment information.
+                    </div>
+
+                    <h3>What this means</h3>
+                    <div id="insightResult">
+                        <div class="summary-item">
+                            <strong>Interpretation:</strong> Your decision pattern is similar to many other testers who focused more on immediate outcomes than structural barriers.
+                        </div>
+                        <div class="summary-item">
+                            <strong>Design value:</strong> This helps reveal not just what one person chose, but what kinds of information are commonly ignored across users.
+                        </div>
+                    </div>
+
+                    <div class="button-row">
+                        <button onclick="downloadData()">Download</button>
+                    </div>
+                </section>
+
+            </section>
+        </main>
+    </div>
+
+    <script src="data/content.js"></script>
+    <script src="data/factors.js"></script>
+    <script src="data/careers.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
