@@ -218,7 +218,11 @@ textarea {
 .main-grid {
     display: grid;
     grid-template-columns: 1.7fr 0.85fr;
-    gap: 20mpx;
+    gap: 20px;
+}
+
+.hidden {
+    display: none !important;
 }
 
 .step {
@@ -391,6 +395,18 @@ button:hover {
     min-height: 210px;
 }
 
+.drop-zone:empty::before,
+.factor-pool:empty::before {
+    content: attr(data-empty-text);
+    text-align: center;
+    font-size: 13px;
+    color: #9ca3af;
+    padding: 18px 0;
+    border: 1px dashed #d1d5db;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.7);
+}
+
 .factor-pool {
     margin-top: 24px;
     display: flex;
@@ -418,6 +434,7 @@ button:hover {
     min-height: 150px;
     cursor: grab;
     box-shadow: var(--shadow-soft);
+    touch-action: manipulation;
 }
 
 .factor-pool .factor-card {
@@ -437,6 +454,20 @@ button:hover {
 
 .draggable-card:active {
     cursor: grabbing;
+}
+
+.sortable-chosen {
+    cursor: grabbing;
+}
+
+.sortable-ghost {
+    opacity: 0.42;
+    border-color: #93c5fd;
+    background: var(--primary-soft);
+}
+
+.sortable-drag {
+    box-shadow: var(--shadow);
 }
 
 .drag-over {
@@ -520,6 +551,20 @@ button:hover {
     background: linear-gradient(180deg, var(--primary-soft) 0%, #ffffff 100%);
 }
 
+.recommendation-note {
+    display: inline-flex;
+    align-items: center;
+    background: var(--green-soft);
+    border: 1px solid #bbf7d0;
+    border-radius: 999px;
+    color: #166534;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    padding: 6px 10px;
+}
+
 /* Detail + warning */
 .detail-panel {
     background: #f8fafc;
@@ -528,6 +573,37 @@ button:hover {
     border-radius: 18px;
     line-height: 1.85;
     margin-top: 16px;
+}
+
+.decision-field {
+    margin-top: 18px;
+}
+
+.sorting-reflection-panel {
+    margin-top: 26px;
+    background: #f8fafc;
+    border: 1px solid var(--line-soft);
+    border-radius: 18px;
+    padding: 18px;
+}
+
+.sorting-reflection-panel h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+.sorting-behaviour-summary {
+    margin-top: 14px;
+}
+
+.reflection-questions {
+    display: grid;
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.reflection-questions .field {
+    margin-bottom: 0;
 }
 
 .warning-box {

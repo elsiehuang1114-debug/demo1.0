@@ -84,18 +84,18 @@
                 <section id="step2" class="step">
                     <div class="step-header">
                         <h2>Your Expectation</h2>
-                        <p class="helper-text">Before we show more detailed data, tell us what you currently expect about this kind of career.</p>
+                        <p class="helper-text">Before you choose a specific career, tell us what you currently expect about the field you are interested in exploring.</p>
                     </div>
 
                     <div class="field">
                         <label for="expectedSalary">Expected Salary</label>
-                        <p class="helper-text">What salary do you think this kind of job usually offers after graduation?</p>
+                        <p class="helper-text">Thinking about your interested field, what salary do you think a related job usually offers after graduation?</p>
                         <input id="expectedSalary" placeholder="e.g. 85000" />
                     </div>
 
                     <div class="field">
                         <label for="expectedJobEase">Job Ease</label>
-                        <p class="helper-text">How easy do you think it is to find a job in this area?</p>
+                        <p class="helper-text">How easy do you think it is to find a job in this area of work?</p>
                         <select id="expectedJobEase">
                             <option value="">Select one</option>
                             <option value="Easy">Easy</option>
@@ -130,19 +130,56 @@
                     <div class="sorting-board">
                         <div class="sorting-column">
                             <h3>Important</h3>
-                            <div id="mostImportantZone" class="drop-zone"></div>
+                            <div id="mostImportantZone" class="drop-zone" aria-label="Important factors"></div>
                         </div>
                         <div class="sorting-column">
                             <h3>Medium</h3>
-                            <div id="mediumZone" class="drop-zone"></div>
+                            <div id="mediumZone" class="drop-zone" aria-label="Medium priority factors"></div>
                         </div>
                         <div class="sorting-column">
                             <h3>Not Important</h3>
-                            <div id="notImportantZone" class="drop-zone"></div>
+                            <div id="notImportantZone" class="drop-zone" aria-label="Not important factors"></div>
                         </div>
                     </div>
 
-                    <div id="factorPool" class="factor-pool"></div>
+                    <div id="factorPool" class="factor-pool" aria-label="Unsorted factors"></div>
+
+                    <div id="sortingReflectionPanel" class="sorting-reflection-panel hidden" aria-live="polite">
+                        <h3>Sorting reflection</h3>
+                        <p class="helper-text">This summary uses observable sorting behaviour only. It does not measure certainty directly.</p>
+                        <div id="sortingBehaviourSummary" class="sorting-behaviour-summary"></div>
+
+                        <div class="reflection-questions">
+                            <div class="field">
+                                <label for="sortingHardestFactor">Which factor was hardest to rank?</label>
+                                <select id="sortingHardestFactor">
+                                    <option value="">Select one</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="sortingUncertainty">Did you feel uncertain while sorting?</label>
+                                <select id="sortingUncertainty">
+                                    <option value="">Select one</option>
+                                    <option value="Not much">Not much</option>
+                                    <option value="Somewhat">Somewhat</option>
+                                    <option value="Very uncertain">Very uncertain</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="repeatedMoveReason">Why did you move some factors multiple times?</label>
+                                <p class="helper-text">If this does not apply, you can briefly say why your ranking felt clear.</p>
+                                <textarea id="repeatedMoveReason" placeholder="Write one or two sentences..."></textarea>
+                            </div>
+
+                            <div class="field">
+                                <label for="sortingAdditionalComment">Additional comment</label>
+                                <p class="helper-text">Add anything else about how you made your sorting decision.</p>
+                                <textarea id="sortingAdditionalComment" placeholder="Optional comment..."></textarea>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="button-row">
                         <button onclick="goToStep(4)">Next</button>
@@ -172,6 +209,18 @@
 
                     <div id="careerDetail" class="detail-panel"></div>
 
+                    <div class="field decision-field">
+                        <label for="confidenceBefore">How confident were you in your initial choice?</label>
+                        <p class="helper-text">Reflect on your confidence before seeing the contextualised information above.</p>
+                        <select id="confidenceBefore">
+                            <option value="">Select one</option>
+                            <option value="Very confident">Very confident</option>
+                            <option value="Somewhat confident">Somewhat confident</option>
+                            <option value="Unsure">Unsure</option>
+                            <option value="Not very confident">Not very confident</option>
+                        </select>
+                    </div>
+
                     <div class="field">
                         <label for="changeDecision">Would you change your choice?</label>
                         <p class="helper-text">After seeing this additional information, would you still choose the same career?</p>
@@ -179,6 +228,35 @@
                             <option value="No">No</option>
                             <option value="Yes">Yes</option>
                         </select>
+                    </div>
+
+                    <div id="revisedChoiceBlock" class="field decision-field hidden">
+                        <label for="revisedCareerChoice">Revised career choice</label>
+                        <p class="helper-text">If you would change your decision, choose the career you would now prefer.</p>
+                        <select id="revisedCareerChoice">
+                            <option value="">Select a revised career</option>
+                        </select>
+                    </div>
+
+                    <div class="field decision-field">
+                        <label for="mostInfluentialFactor">Which new information influenced you most?</label>
+                        <p class="helper-text">Choose the contextualised information that had the strongest effect on your thinking.</p>
+                        <select id="mostInfluentialFactor">
+                            <option value="">Select one</option>
+                            <option value="Salary">Salary information</option>
+                            <option value="Employment Rate">Employment rate or demand</option>
+                            <option value="Visa Difficulty">Visa difficulty</option>
+                            <option value="Time to Employment">Time to employment</option>
+                            <option value="International Gap">International student context</option>
+                            <option value="Skills Match">Skills or background fit</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field decision-field">
+                        <label for="changeReason">Short explanation</label>
+                        <p class="helper-text">Briefly explain why the information did or did not change your decision.</p>
+                        <textarea id="changeReason" placeholder="Write one or two sentences..."></textarea>
                     </div>
 
                     <div class="button-row">
@@ -189,35 +267,14 @@
                 <!-- Step 6 -->
                 <section id="step6" class="step">
                     <div class="step-header">
-                        <h2>Insights</h2>
-                        <p class="helper-text">This final screen compares your decision pattern with broader testing patterns instead of only listing your raw inputs.</p>
+                        <h2>Reflection</h2>
+                        <p class="helper-text">Review how your expectations, priorities, and response to contextualised information shaped your decision.</p>
                     </div>
 
-                    <div class="summary-item">
-                        <strong>Shared career choice:</strong> About 42% of testers also chose the same career path as you.
-                    </div>
+                    <div id="summaryList" class="summary-list"></div>
 
-                    <div class="summary-item">
-                        <strong>Shared priority:</strong> About 57% of testers also placed Salary in a higher-priority group.
-                    </div>
-
-                    <div class="summary-item">
-                        <strong>Shared overlooked factor:</strong> About 48% of testers, like you, placed Visa Difficulty in a lower-priority group.
-                    </div>
-
-                    <div class="summary-item">
-                        <strong>Decision change pattern:</strong> About 31% of testers changed their decision after seeing more contextualised employment information.
-                    </div>
-
-                    <h3>What this means</h3>
-                    <div id="insightResult">
-                        <div class="summary-item">
-                            <strong>Interpretation:</strong> Your decision pattern is similar to many other testers who focused more on immediate outcomes than structural barriers.
-                        </div>
-                        <div class="summary-item">
-                            <strong>Design value:</strong> This helps reveal not just what one person chose, but what kinds of information are commonly ignored across users.
-                        </div>
-                    </div>
+                    <h3>Factors you set aside</h3>
+                    <div id="insightResult"></div>
 
                     <div class="button-row">
                         <button onclick="downloadData()">Download</button>
@@ -231,6 +288,7 @@
     <script src="data/content.js"></script>
     <script src="data/factors.js"></script>
     <script src="data/careers.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
